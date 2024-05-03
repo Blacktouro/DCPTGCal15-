@@ -1,0 +1,30 @@
+def calcular_juros_diarios(valor_inicial, dias, retirada_diaria):
+    taxa_juros = 0.15  # 15% de juros por dia
+    valor_atual = valor_inicial
+    total_ganhos = 0
+    total_retiradas = 0
+
+    print(f"Valor inicial: {valor_inicial:.2f}")
+
+    for dia in range(1, dias + 1):
+        ganho_diario = valor_atual * taxa_juros
+        valor_atual += ganho_diario
+        total_ganhos += ganho_diario
+        
+        valor_atual -= retirada_diaria
+        total_retiradas += retirada_diaria
+        
+        print(f"Dia {dia}: Valor acumulado = {valor_atual:.2f}, Ganho diário = {ganho_diario:.2f}, Retirada diária = {retirada_diaria:.2f}")
+
+    print("\nResumo final:")
+    print(f"Total ganho em juros: {total_ganhos:.2f}")
+    print(f"Total retirado: {total_retiradas:.2f}")
+    print(f"Valor final após retiradas: {valor_atual:.2f}")
+
+# Pedir ao usuário para inserir o valor inicial, o número de dias e a retirada diária
+valor_inicial = float(input("Digite o valor inicial: "))
+dias = int(input("Digite o número de dias: "))
+retirada_diaria = float(input("Digite a retirada diária: "))
+
+# Mostrar os ganhos e valores acumulados diariamente, e os totais no final
+calcular_juros_diarios(valor_inicial, dias, retirada_diaria)
